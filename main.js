@@ -163,14 +163,10 @@ let targil9 = setInterval(() => {
     <p id="counterPointer"> COUNTER = ${COUNTER}</p>
     <p id="x&y"></p>`;
     for(let i = 0; i < arrOfStats.length; i++){
-        console.log(i);
         [num1,num2] = [Math.floor(Math.random()* 101),Math.floor(Math.random()* 101)]
-        console.log(num1,num2);
         stringToBePrint += `
-         <p onclick="info(event,p${i})" id="p${i}"><img src=${arrOfStats[i].src} alt=${arrOfStats[i].name} width="200px" height="300px"> </p>
+        <img onclick="info(event,p${i})" id="p${i}" src=${arrOfStats[i].src} alt=${arrOfStats[i].name} style = margin-left:${num1}vh; margin-top :${num2}vh; width="200px"; height="300px";>
         `
-        // <img onclick="info(event,p${i})" id="p${i}" src=${arrOfStats[i].src} alt=${arrOfStats[i].name} width="200px" height="300px">
-        
     }
     document.body.innerHTML = stringToBePrint;
 }, 3000);
@@ -182,6 +178,7 @@ function info(event,p){
     poosition.style.fontSize = "40px";    
     poosition.innerText = `x: ${event.x}, y: ${event.y}`;
     para = document.getElementById(`${p.id}`);
+    console.log(para.style);
     para.parentNode.removeChild(para);
     let tempP = document.getElementById("counterPointer");
     tempP.innerText = `COUNTER = ${++COUNTER}`
@@ -189,6 +186,7 @@ function info(event,p){
 }
 
 
+//form exracies
 // form = document.getElementById("form");
 // let p1 = document.getElementById("password1");
 // let p2 = document.getElementById("password2");
