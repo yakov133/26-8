@@ -156,20 +156,20 @@ let arrOfStats = [
 ]
 let COUNTER = 0;
 
-let targil9 = setInterval(() => {
-    document.write = ""
-    COUNTER  = 0;
-    let stringToBePrint = `
-    <p id="counterPointer"> COUNTER = ${COUNTER}</p>
-    <p id="x&y"></p>`;
-    for(let i = 0; i < arrOfStats.length; i++){
-        [num1,num2] = [Math.floor(Math.random()* 101),Math.floor(Math.random()* 101)]
-        stringToBePrint += `
-        <img onclick="info(event,p${i})" id="p${i}" src=${arrOfStats[i].src} alt=${arrOfStats[i].name} style = margin-left:${num1}vh; margin-top :${num2}vh; width="200px"; height="300px";>
-        `
-    }
-    document.body.innerHTML = stringToBePrint;
-}, 3000);
+// let targil9 = setInterval(() => {
+//     document.write = ""
+//     COUNTER  = 0;
+//     let stringToBePrint = `
+//     <p id="counterPointer"> COUNTER = ${COUNTER}</p>
+//     <p id="x&y"></p>`;
+//     for(let i = 0; i < arrOfStats.length; i++){
+//         [num1,num2] = [Math.floor(Math.random()* 101),Math.floor(Math.random()* 101)]
+//         stringToBePrint += `
+//         <img onclick="info(event,p${i})" id="p${i}" src=${arrOfStats[i].src} alt=${arrOfStats[i].name} style = margin-left:${num1}vh; margin-top :${num2}vh; width="200px"; height="300px";>
+//         `
+//     }
+//     document.body.innerHTML = stringToBePrint;
+// }, 3000);
 
 function info(event,p){
     let poosition = document.getElementById("x&y");
@@ -186,7 +186,31 @@ function info(event,p){
 }
 
 
+//targil 10
+inputEx10 = document.createElement("input");
+inputEx10.setAttribute("id", "targil10");
+inputEx10.setAttribute("type", "text");
+document.body.appendChild(inputEx10);
+let p = document.createElement("p");
+
+btn = document.createElement("button");
+btn.setAttribute("id", "btn");
+btn.innerText=`Change Color`
+document.body.appendChild(btn);
+document.body.appendChild(p);
+
+let arr = ["red","blue","yellow"], colorIndex = 0;
+btn.addEventListener("click",()=>{
+    if(colorIndex < arr.length){
+        btn.style.backgroundColor = arr[colorIndex++];
+    }
+    p.innerText = `${inputEx10.value} random number: ${Math.floor( Math.random() * 101 + 1)}`
+})
+
+
+
 //form exracies
+
 // form = document.getElementById("form");
 // let p1 = document.getElementById("password1");
 // let p2 = document.getElementById("password2");
